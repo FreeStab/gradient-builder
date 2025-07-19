@@ -1,38 +1,148 @@
-.App {
-  text-align: center;
+.app {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  background: #1a1a1a;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidebar {
+  position: relative;
+  width: 350px;
+  background: #2a2a2a;
+  border-left: 1px solid #404040;
+  padding: 20px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+.attribution {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #ffffff;
+  font-size: 10px;
+}
+.attribution a {
+  color: aliceblue;
+}
+
+.controls-section {
+  background: #333;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #404040;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-header h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.copy-all-css-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 70px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.copy-all-css-btn:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.copy-all-css-btn:active {
+  transform: translateY(0);
+}
+
+.add-gradient-buttons {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.add-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.add-button.linear {
+  background: linear-gradient(45deg, #4f46e5, #7c3aed);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.add-button.radial {
+  background: radial-gradient(circle, #ef4444, #f97316);
+}
+
+.add-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.add-button:active {
+  transform: translateY(0);
+}
+
+/* Background Color Section */
+.background-color-section {
+  margin-top: 15px;
+  padding: 10px 0;
+  border-top: 1px solid #404040;
+}
+
+.background-color-section label {
+  display: block;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.background-color-picker {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #404040;
+  border-radius: 6px;
+  cursor: pointer;
+  background: none;
+  transition: border-color 0.2s ease;
+}
+
+.background-color-picker:hover {
+  border-color: #666;
+}
+
+.background-color-picker:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }

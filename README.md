@@ -1,46 +1,124 @@
-# Getting Started with Create React App
+# Gradient Background Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React application that allows users to create and configure beautiful gradient backgrounds with an intuitive drag-and-drop interface.
 
-## Available Scripts
+🚀 **[Live Demo](https://yourusername.github.io/gradient-builder)** - Try it now!
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Create Gradients**: Add linear and radial gradients to your canvas
+- **Background Color Control**: Set a custom background color for transparent gradients
+- **Drag and Drop**: Reorder gradients in the stack by dragging them
+- **Color Configuration**: Multiple color pickers to create complex gradients
+- **Real-time Preview**: See your gradient changes instantly
+- **CSS Generation**: Copy CSS code for individual gradients or the complete background
+- **Syntax Highlighting**: Beautiful CSS code display with VS Code theme
+- **Gradient Controls**:
+  - Adjust angle for linear gradients
+  - Control center position for radial gradients
+  - Modify opacity for layering effects
+  - Custom gradient sizes with multiple units (%, px, em, rem, vw, vh)
+  - Add multiple color stops per gradient
+- **Responsive Design**: Modern, dark-themed interface
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting Started
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Install dependencies:
 
-### `npm test`
+   ```bash
+   npm install
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Start the development server:
 
-### `npm run build`
+   ```bash
+   npm start
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Open [http://localhost:3000](http://localhost:3000) to view it in your browser
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Deployment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Deploy to GitHub Pages
 
-### `npm run eject`
+1. **Fork or clone this repository**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. **Update the homepage URL** in `package.json`:
+   ```json
+   "homepage": "https://your-username.github.io/gradient-builder"
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Deploy to GitHub Pages**:
+   ```bash
+   npm run deploy
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+4. **Enable GitHub Pages** in your repository settings:
+   - Go to Settings → Pages
+   - Select "Deploy from a branch"
+   - Choose "gh-pages" branch
+   - Your app will be available at the URL specified in the homepage field
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Build for Production
 
-## Learn More
+To create a production build:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This creates a `build` folder with optimized files ready for deployment.
+
+## Usage
+
+1. **Add a Gradient**: Click "Linear Gradient" or "Radial Gradient" to add a new gradient
+2. **Set Background Color**: Use the background color picker to set a base color for transparent gradients
+3. **Select a Gradient**: Click on any gradient in the stack to select and edit it
+4. **Reorder Gradients**: Drag gradients up or down in the stack to change their layering
+5. **Edit Colors**: Use the color pickers to change gradient colors and adjust transparency
+6. **Adjust Properties**: Modify angle, position, size, and opacity using the controls
+7. **Copy CSS**: Click the CSS button to copy the generated CSS code to your clipboard
+8. **Delete Gradients**: Click the "×" button to remove unwanted gradients
+
+## Project Structure
+
+```
+src/
+├── features/
+│   └── gradient/
+│       ├── components/
+│       │   ├── GradientCanvas.js      # Main canvas displaying the gradient
+│       │   ├── GradientCanvas.css     # Canvas-specific styles
+│       │   ├── GradientControls.js    # Control panel for editing gradients
+│       │   ├── GradientControls.css   # Controls panel styles
+│       │   ├── GradientStack.js       # Stack of gradients with drag-and-drop
+│       │   ├── GradientStack.css      # Stack styles
+│       │   ├── GradientStackItem.js   # Individual gradient item in the stack
+│       │   ├── GradientStackItem.css  # Stack item styles
+│       │   ├── ColorPicker.js         # Color input component with alpha support
+│       │   └── ColorPicker.css        # Color picker styles
+│       ├── utils/
+│       │   └── cssGenerator.js        # CSS generation utilities
+│       └── index.js                   # Gradient feature exports
+├── shared/
+│   ├── components/
+│   │   ├── SyntaxHighlighter.js       # CSS syntax highlighter
+│   │   └── SyntaxHighlighter.css      # Syntax highlighter styles
+│   └── index.js                       # Shared components exports
+├── App.js                             # Main application component
+├── App.css                            # Main app styles
+├── index.js                           # React entry point
+└── index.css                          # Global styles
+```
+
+## Technologies Used
+
+- **React 18.2.0** - Main UI framework
+- **React DnD 16.0.1** - Drag and drop functionality for gradient reordering
+- **Shiki** - Syntax highlighting for CSS code generation
+- **CSS3** - Styling with CSS Grid, Flexbox, and custom properties
+- **HTML5 Backend** - For drag and drop operations
+
+## License
+
+MIT License

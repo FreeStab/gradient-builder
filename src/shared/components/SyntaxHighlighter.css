@@ -1,0 +1,74 @@
+.syntax-highlighter {
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 12px 0;
+  font-family: "Fira Code", "Monaco", "Menlo", "Ubuntu Mono", monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Ensure Shiki theme colors are preserved */
+.syntax-highlighter .shiki,
+.syntax-highlighter pre.shiki {
+  background-color: transparent !important;
+}
+
+.syntax-highlighter.loading {
+  background: #1e1e1e;
+  padding: 12px;
+  color: #d4d4d4;
+}
+
+.syntax-highlighter.loading pre {
+  margin: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.syntax-highlighter.loading code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Override Shiki styles for better integration - preserve theme colors */
+.syntax-highlighter pre {
+  margin: 0 !important;
+  padding: 16px !important;
+  border-radius: 8px;
+  overflow-x: auto;
+  /* Remove background override to preserve theme colors */
+}
+
+.syntax-highlighter code {
+  font-family: "Fira Code", "Monaco", "Menlo", "Ubuntu Mono", monospace !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  /* Remove color overrides to preserve syntax highlighting */
+}
+
+/* Custom scrollbar for better appearance */
+.syntax-highlighter pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.syntax-highlighter pre::-webkit-scrollbar-track {
+  background: #2d2d2d;
+  border-radius: 4px;
+}
+
+.syntax-highlighter pre::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.syntax-highlighter pre::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
