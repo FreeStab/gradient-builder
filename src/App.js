@@ -197,13 +197,15 @@ const App = () => {
                   onClick={() => addGradient("linear")}
                   className="add-button linear"
                 >
-                  + Linear Gradient
+                  <Icon icon="uil:plus-circle" width="16" height="16" /> Linear
+                  Gradient
                 </button>
                 <button
                   onClick={() => addGradient("radial")}
                   className="add-button radial"
                 >
-                  + Radial Gradient
+                  <Icon icon="uil:plus-circle" width="16" height="16" /> Radial
+                  Gradient
                 </button>
               </div>
 

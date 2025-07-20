@@ -4,6 +4,21 @@
   min-height: 100vh;
   transition: background 0.3s ease;
 }
+@media (max-width: 650px) {
+  .gradient-canvas:after {
+    content: "On this screen size you can only enjoy the gradients, go on desktop to create them!";
+    font-size: 0.75rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    mix-blend-mode: exclusion;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  .gradient-canvas:hover:after {
+    opacity: 0;
+  }
+}
 
 .canvas-overlay {
   position: absolute;
