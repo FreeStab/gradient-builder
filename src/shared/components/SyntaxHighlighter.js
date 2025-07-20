@@ -14,7 +14,7 @@ const SyntaxHighlighter = ({ code, language = "css" }) => {
 
     if (success) {
       setCopyStatus(true);
-      setTimeout(() => setCopyStatus(false), 2000);
+      setTimeout(() => setCopyStatus(false), 1500);
     }
   };
 

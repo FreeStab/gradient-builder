@@ -24,7 +24,7 @@
 }
 
 .copy-code-button {
-  opacity: 0.2;
+  opacity: 0;
   position: absolute;
   background: transparent;
   color: white;
@@ -33,6 +33,8 @@
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  backdrop-filter: blur(2px);
+  outline: 1px solid white;
   transition: background 0.3s ease, opacity 0.3s ease;
 }
 

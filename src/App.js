@@ -1,6 +1,7 @@
-import React, { useState, useCallback, useMemo, useEffect } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { Icon } from "@iconify/react";
 import {
   GradientCanvas,
   GradientControls,
@@ -145,6 +146,45 @@ const App = () => {
             backgroundColor={backgroundColor}
           />
           <div className="sidebar">
+            <div className="attribution">
+              <p>Made with ❤️ by Charles Lavalard</p>
+              <div className="social-icons">
+                <a
+                  href="https://github.com/FreeStab"
+                  title="Github"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon icon="uil:github" width={16} height={16} />
+                </a>
+                <a
+                  href="mailto:charles.lavalard.dev@gmail.com?subject=Prise de contact&body=Hello Charles,%0Atu vas bien ?"
+                  title="Send me an email"
+                >
+                  <Icon icon="uil:envelope" width={16} height={16} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/charles-lavalard-427455165/"
+                  title="LinkedIn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon icon="uil:linkedin-alt" width={16} height={16} />
+                </a>
+                <a
+                  href="https://coff.ee/charleslavq"
+                  title="Buy me a coffee"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon
+                    icon="simple-icons:buymeacoffee"
+                    width={16}
+                    height={16}
+                  />
+                </a>
+              </div>
+            </div>
             <div className="controls-section">
               <h2>Gradient Builder</h2>
 
@@ -193,14 +233,6 @@ const App = () => {
                 }
               />
             )}
-            <div className="attribution">
-              <p>
-                Gradient Builder by{" "}
-                <a href="https://github.com/FreeStab" title="Gradient Builder">
-                  Charles Lavalard
-                </a>
-              </p>
-            </div>
           </div>
         </div>
       </div>

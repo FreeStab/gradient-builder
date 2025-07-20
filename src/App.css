@@ -23,7 +23,9 @@
   gap: 1.25rem;
 }
 .attribution {
-  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   bottom: 0.625rem;
   left: 0.625rem;
   color: #ffffff;
@@ -31,6 +33,10 @@
 }
 .attribution a {
   color: aliceblue;
+}
+.attribution .social-icons {
+  display: flex;
+  gap: 0.25rem;
 }
 
 .controls-section {
