@@ -7,7 +7,7 @@ import {
   GradientControls,
   GradientStack,
 } from "./features/gradient";
-import { getStateFromUrl, updateUrlWithState } from "./shared";
+import { getStateFromUrl, updateUrlWithState, OfflineIndicator } from "./shared";
 import "./App.css";
 
 const App = () => {
@@ -235,6 +235,7 @@ const App = () => {
             )}
           </div>
         </div>
+        <OfflineIndicator />
       </div>
     </DndProvider>
   );
