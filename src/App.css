@@ -109,9 +109,3 @@ h2 {
 .background-color-picker:hover {
   border-color: #666;
 }
-
-.background-color-picker:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 0.125rem rgba(0, 123, 255, 0.25);
-}

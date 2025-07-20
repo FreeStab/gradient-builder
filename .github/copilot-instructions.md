@@ -108,7 +108,6 @@ src/
 
 ### 5. CSS Generation
 
-- **Individual CSS**: Copy CSS for selected gradient
 - **Combined CSS**: Copy CSS for all gradients
 - **Clipboard Support**: Automatic copy to clipboard with fallback
 - **Real-time Preview**: Live background updates
