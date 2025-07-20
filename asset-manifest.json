@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/gradient-builder/static/css/main.4ab85dcc.css",
-    "main.js": "/gradient-builder/static/js/main.87a8243a.js",
+    "main.css": "/gradient-builder/static/css/main.631d5c4c.css",
+    "main.js": "/gradient-builder/static/js/main.a4495087.js",
     "static/js/9960.5fc37a5b.chunk.js": "/gradient-builder/static/js/9960.5fc37a5b.chunk.js",
     "static/js/3996.8e1c13db.chunk.js": "/gradient-builder/static/js/3996.8e1c13db.chunk.js",
     "static/js/7253.459269c2.chunk.js": "/gradient-builder/static/js/7253.459269c2.chunk.js",
@@ -286,8 +286,8 @@
     "static/js/2881.202c8f56.chunk.js": "/gradient-builder/static/js/2881.202c8f56.chunk.js",
     "static/js/9850.ed34fe42.chunk.js": "/gradient-builder/static/js/9850.ed34fe42.chunk.js",
     "index.html": "/gradient-builder/index.html",
-    "main.4ab85dcc.css.map": "/gradient-builder/static/css/main.4ab85dcc.css.map",
-    "main.87a8243a.js.map": "/gradient-builder/static/js/main.87a8243a.js.map",
+    "main.631d5c4c.css.map": "/gradient-builder/static/css/main.631d5c4c.css.map",
+    "main.a4495087.js.map": "/gradient-builder/static/js/main.a4495087.js.map",
     "9960.5fc37a5b.chunk.js.map": "/gradient-builder/static/js/9960.5fc37a5b.chunk.js.map",
     "3996.8e1c13db.chunk.js.map": "/gradient-builder/static/js/3996.8e1c13db.chunk.js.map",
     "7253.459269c2.chunk.js.map": "/gradient-builder/static/js/7253.459269c2.chunk.js.map",
@@ -573,7 +573,7 @@
     "9850.ed34fe42.chunk.js.map": "/gradient-builder/static/js/9850.ed34fe42.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4ab85dcc.css",
-    "static/js/main.87a8243a.js"
+    "static/css/main.631d5c4c.css",
+    "static/js/main.a4495087.js"
   ]
 }
