@@ -7,7 +7,11 @@ import {
   GradientControls,
   GradientStack,
 } from "./features/gradient";
-import { getStateFromUrl, updateUrlWithState, OfflineIndicator } from "./shared";
+import {
+  getStateFromUrl,
+  updateUrlWithState,
+  OfflineIndicator,
+} from "./shared";
 import "./App.css";
 
 const App = () => {
