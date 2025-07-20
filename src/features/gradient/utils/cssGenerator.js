@@ -10,10 +10,10 @@ export const generateGradientCSS = (gradient) => {
 
     if (gradient.size === "custom") {
       if (gradient.customSize.width === gradient.customSize.height) {
-        // Cercle avec taille personnalisée
+        // Circle with custom size
         sizeDeclaration = `${gradient.customSize.width}${gradient.customSize.unit}`;
       } else {
-        // Ellipse avec largeur et hauteur différentes
+        // Ellipse with different width and height
         sizeDeclaration = `${gradient.customSize.width}${gradient.customSize.unit} ${gradient.customSize.height}${gradient.customSize.unit}`;
       }
     } else {
@@ -56,37 +56,11 @@ export const generateAllGradientsCSS = (
     }
   });
 
-  // Combiner les gradients avec la couleur de fond
+  // Combine gradients with background color
   const backgroundValue =
     gradientStrings.length > 0
       ? `${gradientStrings.join(", ")}, ${backgroundColor}`
       : backgroundColor;
 
   return `background: ${backgroundValue};`;
-};
-
-export const copyToClipboard = async (text) => {
-  try {
-    await navigator.clipboard.writeText(text);
-    return true;
-  } catch (err) {
-    // Fallback pour les navigateurs plus anciens
-    const textArea = document.createElement("textarea");
-    textArea.value = text;
-    textArea.style.position = "fixed";
-    textArea.style.left = "-999999px";
-    textArea.style.top = "-999999px";
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-
-    try {
-      document.execCommand("copy");
-      document.body.removeChild(textArea);
-      return true;
-    } catch (err) {
-      document.body.removeChild(textArea);
-      return false;
-    }
-  }
 };

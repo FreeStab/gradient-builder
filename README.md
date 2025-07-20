@@ -44,11 +44,13 @@ A React application that allows users to create and configure beautiful gradient
 1. **Fork or clone this repository**
 
 2. **Update the homepage URL** in `package.json`:
+
    ```json
    "homepage": "https://your-username.github.io/gradient-builder"
    ```
 
 3. **Deploy to GitHub Pages**:
+
    ```bash
    npm run deploy
    ```

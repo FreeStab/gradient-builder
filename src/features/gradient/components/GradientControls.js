@@ -1,11 +1,7 @@
-import React, { useState } from 'react';
-import ColorPicker from './ColorPicker';
-import { generateGradientCSS, copyToClipboard } from '../utils/cssGenerator';
-import './GradientControls.css';
+import ColorPicker from "./ColorPicker";
+import "./GradientControls.css";
 
 const GradientControls = ({ gradient, onUpdate }) => {
-  const [copyStatus, setCopyStatus] = useState('');
-
   const updateColor = (index, color) => {
     const newColors = [...gradient.colors];
     newColors[index] = { ...newColors[index], color };
@@ -14,7 +10,10 @@ const GradientControls = ({ gradient, onUpdate }) => {
 
   const updateColorStop = (index, stop) => {
     const newColors = [...gradient.colors];
-    newColors[index] = { ...newColors[index], stop: Math.max(0, Math.min(100, stop)) };
+    newColors[index] = {
+      ...newColors[index],
+      stop: Math.max(0, Math.min(100, stop)),
+    };
     onUpdate({ colors: newColors });
   };
 
@@ -23,7 +22,7 @@ const GradientControls = ({ gradient, onUpdate }) => {
     // Find a good position for the new color
     const lastStop = newColors[newColors.length - 1].stop;
     const newStop = Math.min(100, lastStop + 20);
-    newColors.push({ color: 'rgba(255, 255, 255, 1)', stop: newStop });
+    newColors.push({ color: "rgba(255, 255, 255, 1)", stop: newStop });
     onUpdate({ colors: newColors });
   };
 
@@ -39,34 +38,21 @@ const GradientControls = ({ gradient, onUpdate }) => {
     onUpdate({ colors: sortedColors });
   };
 
-  const handleCopyCSS = async () => {
-    const cssCode = generateGradientCSS(gradient);
-    const success = await copyToClipboard(cssCode);
-    
-    if (success) {
-      setCopyStatus('Copié !');
-      setTimeout(() => setCopyStatus(''), 2000);
-    } else {
-      setCopyStatus('Erreur');
-      setTimeout(() => setCopyStatus(''), 2000);
-    }
-  };
-
   const getSizeOptions = () => {
-    if (gradient.type === 'radial') {
+    if (gradient.type === "radial") {
       return [
-        { value: 'closest-side', label: 'Closest Side' },
-        { value: 'closest-corner', label: 'Closest Corner' },
-        { value: 'farthest-side', label: 'Farthest Side' },
-        { value: 'farthest-corner', label: 'Farthest Corner' },
-        { value: 'custom', label: 'Custom Size' }
+        { value: "closest-side", label: "Closest Side" },
+        { value: "closest-corner", label: "Closest Corner" },
+        { value: "farthest-side", label: "Farthest Side" },
+        { value: "farthest-corner", label: "Farthest Corner" },
+        { value: "custom", label: "Custom Size" },
       ];
     } else {
       return [
-        { value: 'cover', label: 'Cover' },
-        { value: 'contain', label: 'Contain' },
-        { value: 'auto', label: 'Auto' },
-        { value: 'custom', label: 'Custom Size' }
+        { value: "cover", label: "Cover" },
+        { value: "contain", label: "Contain" },
+        { value: "auto", label: "Auto" },
+        { value: "custom", label: "Custom Size" },
       ];
     }
   };
@@ -80,19 +66,12 @@ const GradientControls = ({ gradient, onUpdate }) => {
     <div className="gradient-controls">
       <div className="controls-header">
         <h3>Gradient Controls</h3>
-        <button 
-          className="copy-css-btn"
-          onClick={handleCopyCSS}
-          title="Copier le CSS du gradient"
-        >
-          {copyStatus || '📋 CSS'}
-        </button>
       </div>
-      
+
       <div className="control-group">
         <label>Type</label>
-        <select 
-          value={gradient.type} 
+        <select
+          value={gradient.type}
           onChange={(e) => onUpdate({ type: e.target.value })}
         >
           <option value="linear">Linear</option>
@@ -102,11 +81,11 @@ const GradientControls = ({ gradient, onUpdate }) => {
 
       <div className="control-group">
         <label>Size</label>
-        <select 
-          value={gradient.size} 
+        <select
+          value={gradient.size}
           onChange={(e) => onUpdate({ size: e.target.value })}
         >
-          {getSizeOptions().map(option => (
+          {getSizeOptions().map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
             </option>
@@ -114,7 +93,7 @@ const GradientControls = ({ gradient, onUpdate }) => {
         </select>
       </div>
 
-      {gradient.size === 'custom' && (
+      {gradient.size === "custom" && (
         <div className="custom-size-controls">
           <div className="size-row">
             <div className="size-input-group">
@@ -124,7 +103,9 @@ const GradientControls = ({ gradient, onUpdate }) => {
                 min="1"
                 max="200"
                 value={gradient.customSize.width}
-                onChange={(e) => handleCustomSizeChange('width', parseInt(e.target.value))}
+                onChange={(e) =>
+                  handleCustomSizeChange("width", parseInt(e.target.value))
+                }
               />
             </div>
             <div className="size-input-group">
@@ -134,15 +115,17 @@ const GradientControls = ({ gradient, onUpdate }) => {
                 min="1"
                 max="200"
                 value={gradient.customSize.height}
-                onChange={(e) => handleCustomSizeChange('height', parseInt(e.target.value))}
+                onChange={(e) =>
+                  handleCustomSizeChange("height", parseInt(e.target.value))
+                }
               />
             </div>
           </div>
           <div className="unit-control">
             <label>Unit</label>
-            <select 
-              value={gradient.customSize.unit} 
-              onChange={(e) => handleCustomSizeChange('unit', e.target.value)}
+            <select
+              value={gradient.customSize.unit}
+              onChange={(e) => handleCustomSizeChange("unit", e.target.value)}
             >
               <option value="%">Percentage (%)</option>
               <option value="px">Pixels (px)</option>
@@ -155,7 +138,7 @@ const GradientControls = ({ gradient, onUpdate }) => {
         </div>
       )}
 
-      {gradient.type === 'linear' && (
+      {gradient.type === "linear" && (
         <div className="control-group">
           <label>Angle: {gradient.angle}°</label>
           <input
@@ -168,7 +151,7 @@ const GradientControls = ({ gradient, onUpdate }) => {
         </div>
       )}
 
-      {gradient.type === 'radial' && (
+      {gradient.type === "radial" && (
         <>
           <div className="control-group">
             <label>Center X: {gradient.position.x}%</label>
@@ -177,9 +160,14 @@ const GradientControls = ({ gradient, onUpdate }) => {
               min="0"
               max="100"
               value={gradient.position.x}
-              onChange={(e) => onUpdate({ 
-                position: { ...gradient.position, x: parseInt(e.target.value) } 
-              })}
+              onChange={(e) =>
+                onUpdate({
+                  position: {
+                    ...gradient.position,
+                    x: parseInt(e.target.value),
+                  },
+                })
+              }
             />
           </div>
           <div className="control-group">
@@ -189,9 +177,14 @@ const GradientControls = ({ gradient, onUpdate }) => {
               min="0"
               max="100"
               value={gradient.position.y}
-              onChange={(e) => onUpdate({ 
-                position: { ...gradient.position, y: parseInt(e.target.value) } 
-              })}
+              onChange={(e) =>
+                onUpdate({
+                  position: {
+                    ...gradient.position,
+                    y: parseInt(e.target.value),
+                  },
+                })
+              }
             />
           </div>
         </>
@@ -213,14 +206,14 @@ const GradientControls = ({ gradient, onUpdate }) => {
         <div className="color-header">
           <label>Color Stops</label>
           <div className="color-actions">
-            <button 
+            <button
               className="sort-colors-btn"
               onClick={sortColors}
               title="Sort colors by position"
             >
               ↕ Sort
             </button>
-            <button 
+            <button
               className="add-color-btn"
               onClick={addColor}
               disabled={gradient.colors.length >= 5}
@@ -229,7 +222,7 @@ const GradientControls = ({ gradient, onUpdate }) => {
             </button>
           </div>
         </div>
-        
+
         <div className="color-list">
           {gradient.colors.map((colorStop, index) => (
             <div key={index} className="color-stop-item">
@@ -246,7 +239,9 @@ const GradientControls = ({ gradient, onUpdate }) => {
                     min="0"
                     max="100"
                     value={colorStop.stop}
-                    onChange={(e) => updateColorStop(index, parseInt(e.target.value))}
+                    onChange={(e) =>
+                      updateColorStop(index, parseInt(e.target.value))
+                    }
                     className="stop-slider"
                   />
                 </div>

@@ -5,13 +5,10 @@ import {
   GradientCanvas,
   GradientControls,
   GradientStack,
-  generateAllGradientsCSS,
-  copyToClipboard,
 } from "./features/gradient";
 import "./App.css";
 
 const App = () => {
-  const [copyStatus, setCopyStatus] = useState("");
   const [backgroundColor, setBackgroundColor] = useState("#ffffff");
 
   const [gradients, setGradients] = useState([
@@ -58,7 +55,7 @@ const App = () => {
 
   const [selectedGradientId, setSelectedGradientId] = useState(null);
 
-  // Dériver le gradient sélectionné à partir de la liste des gradients
+  // Derive the selected gradient from the gradients list
   const selectedGradient = useMemo(() => {
     if (selectedGradientId) {
       return gradients.find((g) => g.id === selectedGradientId) || null;
@@ -113,19 +110,6 @@ const App = () => {
     });
   }, []);
 
-  const handleCopyAllCSS = async () => {
-    const cssCode = generateAllGradientsCSS(gradients, backgroundColor);
-    const success = await copyToClipboard(cssCode);
-
-    if (success) {
-      setCopyStatus("Copié !");
-      setTimeout(() => setCopyStatus(""), 2000);
-    } else {
-      setCopyStatus("Erreur");
-      setTimeout(() => setCopyStatus(""), 2000);
-    }
-  };
-
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="app">
@@ -136,16 +120,8 @@ const App = () => {
           />
           <div className="sidebar">
             <div className="controls-section">
-              <div className="section-header">
-                <h2>Gradient Builder</h2>
-                <button
-                  className="copy-all-css-btn"
-                  onClick={handleCopyAllCSS}
-                  title="Copier le CSS de tous les gradients"
-                >
-                  {copyStatus || "📋 CSS"}
-                </button>
-              </div>
+              <h2>Gradient Builder</h2>
+
               <div className="add-gradient-buttons">
                 <button
                   onClick={() => addGradient("linear")}
@@ -192,19 +168,6 @@ const App = () => {
               />
             )}
             <div className="attribution">
-              <p>
-                Icons made by{" "}
-                <a
-                  href="https://www.flaticon.com/authors/freepik"
-                  title="Freepik"
-                >
-                  Freepik
-                </a>{" "}
-                from{" "}
-                <a href="https://www.flaticon.com/" title="Flaticon">
-                  www.flaticon.com
-                </a>
-              </p>
               <p>
                 Gradient Builder by{" "}
                 <a href="https://github.com/FreeStab" title="Gradient Builder">
