@@ -16,18 +16,18 @@
   width: 350px;
   background: #2a2a2a;
   border-left: 1px solid #404040;
-  padding: 20px;
+  padding: 1.25rem;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
 .attribution {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 0.625rem;
+  left: 0.625rem;
   color: #ffffff;
-  font-size: 10px;
+  font-size: 0.625rem;
 }
 .attribution a {
   color: aliceblue;
@@ -35,53 +35,29 @@
 
 .controls-section {
   background: #333;
-  padding: 15px;
-  border-radius: 8px;
+  padding: 1rem;
+  border-radius: 0.5rem;
   border: 1px solid #404040;
 }
 
 h2 {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0.625rem;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 600;
-}
-
-.copy-all-css-btn {
-  background: #3b82f6;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  min-width: 70px;
-  justify-content: center;
-}
-
-.copy-all-css-btn:hover {
-  background: #2563eb;
-  transform: translateY(-1px);
-}
-
-.copy-all-css-btn:active {
-  transform: translateY(0);
 }
 
 .add-gradient-buttons {
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
   flex-direction: column;
 }
 
 .add-button {
-  padding: 10px 15px;
+  padding: 0.625rem 1rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   cursor: pointer;
   font-weight: 500;
   transition: all 0.2s ease;
@@ -98,7 +74,7 @@ h2 {
 
 .add-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.3);
 }
 
 .add-button:active {
@@ -107,24 +83,24 @@ h2 {
 
 /* Background Color Section */
 .background-color-section {
-  margin-top: 15px;
-  padding: 10px 0;
+  margin-top: 1rem;
+  padding: 0.625rem 0;
   border-top: 1px solid #404040;
 }
 
 .background-color-section label {
   display: block;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 }
 
 .background-color-picker {
   width: 100%;
   height: 40px;
-  border: 2px solid #404040;
-  border-radius: 6px;
+  border: 0.125rem solid #404040;
+  border-radius: 0.375rem;
   cursor: pointer;
   background: none;
   transition: border-color 0.2s ease;
@@ -137,5 +113,5 @@ h2 {
 .background-color-picker:focus {
   outline: none;
   border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 0.125rem rgba(0, 123, 255, 0.25);
 }

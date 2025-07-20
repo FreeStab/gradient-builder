@@ -20,7 +20,7 @@
 }
 
 .canvas-info {
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(1rem);
   padding: 1rem;
   width: 100%;
 }

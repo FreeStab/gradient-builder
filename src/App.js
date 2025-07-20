@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useCallback, useMemo, useEffect } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import {
@@ -6,54 +6,80 @@ import {
   GradientControls,
   GradientStack,
 } from "./features/gradient";
+import { getStateFromUrl, updateUrlWithState } from "./shared";
 import "./App.css";
 
 const App = () => {
-  const [backgroundColor, setBackgroundColor] = useState("#ffffff");
+  // Initialize state with default values
+  const getInitialState = () => {
+    // Try to load from URL first
+    const urlState = getStateFromUrl();
+    if (urlState) {
+      return {
+        backgroundColor: urlState.backgroundColor,
+        gradients: urlState.gradients,
+      };
+    }
 
-  const [gradients, setGradients] = useState([
-    {
-      id: 1,
-      type: "radial",
-      colors: [
-        { color: "rgba(0, 42, 255, 0.28)", stop: 0 },
-        { color: "rgba(255, 255, 255, 0)", stop: 100 },
+    // Default state if no URL config
+    return {
+      backgroundColor: "#ffffff",
+      gradients: [
+        {
+          id: 1,
+          type: "radial",
+          colors: [
+            { color: "rgba(0, 42, 255, 0.28)", stop: 0 },
+            { color: "rgba(255, 255, 255, 0)", stop: 100 },
+          ],
+          angle: 0,
+          size: "farthest-corner",
+          customSize: { width: 50, height: 50, unit: "%" },
+          position: { x: 100, y: 0 },
+          opacity: 1,
+        },
+        {
+          id: 2,
+          type: "radial",
+          colors: [
+            { color: "rgba(117, 163, 255, 0.58)", stop: 0 },
+            { color: "rgba(0, 0, 255, 0)", stop: 75 },
+          ],
+          angle: 0,
+          size: "farthest-corner",
+          customSize: { width: 50, height: 50, unit: "%" },
+          position: { x: 0, y: 100 },
+          opacity: 1,
+        },
+        {
+          id: 3,
+          type: "radial",
+          colors: [
+            { color: "rgba(255, 221, 97, 0.41)", stop: 0 },
+            { color: "rgba(0, 0, 255, 0)", stop: 100 },
+          ],
+          angle: 0,
+          size: "custom",
+          customSize: { width: 31, height: 37, unit: "%" },
+          position: { x: 19, y: 50 },
+          opacity: 1,
+        },
       ],
-      angle: 0,
-      size: "farthest-corner",
-      customSize: { width: 50, height: 50, unit: "%" },
-      position: { x: 100, y: 0 },
-      opacity: 1,
-    },
-    {
-      id: 2,
-      type: "radial",
-      colors: [
-        { color: "rgba(117, 163, 255, 0.58)", stop: 0 },
-        { color: "rgba(0, 0, 255, 0)", stop: 75 },
-      ],
-      angle: 0,
-      size: "farthest-corner",
-      customSize: { width: 50, height: 50, unit: "%" },
-      position: { x: 0, y: 100 },
-      opacity: 1,
-    },
-    {
-      id: 3,
-      type: "radial",
-      colors: [
-        { color: "rgba(255, 221, 97, 0.41)", stop: 0 },
-        { color: "rgba(0, 0, 255, 0)", stop: 100 },
-      ],
-      angle: 0,
-      size: "custom",
-      customSize: { width: 31, height: 37, unit: "%" },
-      position: { x: 19, y: 50 },
-      opacity: 1,
-    },
-  ]);
+    };
+  };
+
+  const initialState = getInitialState();
+  const [backgroundColor, setBackgroundColor] = useState(
+    initialState.backgroundColor
+  );
+  const [gradients, setGradients] = useState(initialState.gradients);
 
   const [selectedGradientId, setSelectedGradientId] = useState(null);
+
+  // Update URL when gradients or background color changes
+  useEffect(() => {
+    updateUrlWithState(gradients, backgroundColor);
+  }, [gradients, backgroundColor]);
 
   // Derive the selected gradient from the gradients list
   const selectedGradient = useMemo(() => {
